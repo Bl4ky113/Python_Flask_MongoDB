@@ -4,14 +4,17 @@ Gooddamit, no tengo las skills de Backend con APIs para este curso, lo mejor es
 volver cuando las sepa. hoy 06/06/22. Escribire cuando vuelva.
 
 Hello. Dios, ha sido tanto tanto tiempo, me da melancolía volver por acá.
-Han pasado exactamente 2 meses desde que deje este mensaje. Hoy 08/06/2022 vuelvo 
+Han pasado exactamente 3 meses desde que deje este mensaje. Hoy 08/06/2022 vuelvo 
 a retomar mi ruta de aprendizaje.
 
-start: 08/06/2022
+start: 09/06/2022
 end: 
 
 sessions:
-1. 08/06/2022: ... - 20:18
+1. 09/06/2022: ... - 20:18
+2. 09/07/2022: ... - ...
+3. 09/08/2022: 10:15 - ...
+4. 09/27/2022: 13:50 - 
 
 ## Que vamos a ver?
 
@@ -95,6 +98,9 @@ que mongoDB no funciona en Procesadores más viejos que las series de 2012. Tant
 Pero lo bueno es que ver mi setup de trabajo en una pantalla 4k, es espectacular y sinceramente 
 maravilloso.
 
+He obtenido mi propio PC Poratíl, un i3 de 11va gen, 3.coso Ghz de pura potencia, 
+debe correr sin problemas.
+
 ## Conectarse a nuestra DB en Atlas desde MongoSH
 
 Vamos a ir al sitio web de Atlas, vamos a ir al menu de DB, y le damos a connect a la DB deseada.
@@ -172,3 +178,94 @@ MongoDB tiene una estructura jerarquica, empezando por DB, Collection, Document 
 	Elimina los Docs del filtro, retorna si lo hizo bien y cuantos borro.
 
 Para hacer estas Operaciones en Compass, es bastance sencillo, solo toca seguir la GUI.
+
+## Tipos de Datos en MongoDB
+
+- Strings: Texto, "texto"
+- Bools: Booleano, T / F
+- ObjectId: El Id o index de un obj o doc, ObjectId("id")
+- Date: Formato de Fecha especial de MongoDB, ISODate("fecha")
+- Number: Varian en tamaño:
+	- Double: decimales
+	- Int 32bits
+	- Int 64bits
+	- Decimal: Numeros grandes de 128bits
+- Embedded Docs: Subdocumentos dentro de los documentos, tambien conocidas como subcollections
+- Arrays: Una lista que permite los datos anteriores.
+
+Los Documentos de MongoDB tienen un Limite de 16 MB, o Mega Bytes.
+
+## Esquemas y Relaciones
+
+Los esquemas es la forma en la que podemos guardar nuestros Docs, comportandose como un 
+espectro. Donde se tiene MongoDB y las DB SQL cómo extremos. 
+En MongoDB, se puede guardar todo tipo de Doc, inclusive sin tener la minima estructura parecida 
+u tipos de datos, se puede hacer pero no es recomendable ya que necesitariamos hacer queries muy 
+complejos para obtener los datos.
+En el medio, podemos tener docs con estructuras similares, solo que falten o se agregen algunos campos
+en algun que otro documento, pero que en general todos tengan unos datos base.
+En DBSQL todos los documentos tienen los mismos tipos de datos y datos, si algun documento necesitara 
+un valor vacio, se usa null o valores predeterminados. Haciendo que si un doc tenga que agregarse un
+nuevo valor, tendriamos que hacer un script de balanceo para que todos los documentos tengan ese 
+tipo de dato, aun así sea un null.
+
+Las Relaciones son la forma en que las collections y los documentos que tienen se relacionan, 
+generalmente son de grupos más grandes a pequeños. Como de Carrera > Curso > Clase > Material.
+Estas se pueden hacer como en el mundo SQl, creando collections con docs de valores y agregarles 
+el ID de otro Documento, al que pertenecen.
+
+## Relaciones Entre Documents
+
+Las relaciones entre Documentos son casos en los que vamos a 
+tener que linkear información extra de uno al otro. Lo más general es 
+usar Documentos embedidos, cuando la relacion sea 1 : 1, o cuando solo 
+ese documento necesite del otro. Como un comentario en un post.
+
+Si más de un documento necesita de ese documento extra, como una etiqueta,
+podemos repetir la información de ese documento para cada documento, aunque pueda 
+ser no optimo. Ya si esta información debe cambiar en cada documento frecuentemente,
+lo mejor sería hacer un documento extra y no un embedded doc, y hacer referencia al ID 
+de este.
+
+## Operadores y Filtros en MongoDB
+
+Primero veamos los filtros, los filtros tienen el formato
+{ \<field\>: { \<operator\>: \<value\>}, {}, ... }
+
+Con los Queries podemos obtener los docs poniendo filtros, pero 
+ademas podemos obtener solo partes de estas usando proyecciones:
+{FILTRO}, {value1: 1, value2: 1}
+Siguendo este formato, nos traera solo value 1 y 2 de los docs que entren en el FILTRO
+
+### Operadores de Comparación
+- $eq =
+- $gt >
+- $gte >=
+- $lt <
+- $lte <=
+- $ne !=
+- $in valores dentro de Array
+- $nin valores NO ...
+
+### Operadores Lógicos
+- $and
+- $not
+- $nor
+- $or
+
+### Operadores Por Elemento
+- $exists Ver si doc cuenta con campo
+- $type Ver que tipo de dato esta guardado en un campo
+
+### Operadores de Arrays
+- $all SubQuery a los elementos del Array, trae todos
+- $elemMatch SubQuery para los docs y embedded docs del Array
+- $size len(array)
+- $addToSet Agregar valor al Array
+- $pull Eliminar Valores del Array
+
+### Methods de Query
+- .skip(int) Se salta los INT primeros valores
+- .limit(int) Solo toma los INT primeros Valores
+
+
