@@ -7,6 +7,8 @@ Hello. Dios, ha sido tanto tanto tiempo, me da melancolía volver por acá.
 Han pasado exactamente 3 meses desde que deje este mensaje. Hoy 08/06/2022 vuelvo 
 a retomar mi ruta de aprendizaje.
 
+Bueno, depues de examenes y demás cosas. Puedo volver. Ya voy para cuatro meses.
+
 start: 09/06/2022
 end: 
 
@@ -14,7 +16,9 @@ sessions:
 1. 09/06/2022: ... - 20:18
 2. 09/07/2022: ... - ...
 3. 09/08/2022: 10:15 - ...
-4. 09/27/2022: 13:50 - 
+4. 09/27/2022: 13:50 - ...
+5. 10/06/2022: 15:40 - 19:..
+6. 28/10/2022: 13:47 - 
 
 ## Que vamos a ver?
 
@@ -268,4 +272,45 @@ Siguendo este formato, nos traera solo value 1 y 2 de los docs que entren en el 
 - .skip(int) Se salta los INT primeros valores
 - .limit(int) Solo toma los INT primeros Valores
 
+## Agregaciones: Super Query
 
+Las agregaciones son una forma de poder hacer queries super potentes. Teniendo varios 
+para diferentes situaciones:
+
+### Pipeline de Agregaciones
+
+Se usa Aggregations más que todo para obtener datos de un grupo de datos, 
+como la suma, average o max, min, etc. Creando un grupo con un $match, como tamaño u 
+caracteristica general. Para despues agrupar los datos del $match con un $group.
+Haciendo que este proceso sea de stages.
+Se puede modificar o agregar los datos con $out u $merge, pero no se explica.
+Tener varios stages, puede perjudicar el performance del Query.
+
+### Map-Reduce
+
+Map-Reduce es Depreciado, Degradado, Olvidado, lo mejor es no explicarlo y usarlo.
+
+### Otras functions
+
+- count() y estimatedDocumentCount():
+	Es una forma de contar todos los docs de una collection, solo que cambia su velocidad y 
+	resultado una vez la collection tenga muchisimos docs registrados.
+	
+- distinct(field):
+	Nos devuelve un Array de los valores posibles dentro de los docs de la collection de un field.
+
+# El Proyecto Mongo Platzi
+
+El proyecto lo vamos a hacer usando Python y Flask, vamos a hacer una API para nuestra DB. Vamos a usar esta con 
+Postman, que es una herramienta para usar de mejor forma las APIs.
+
+Podemos instalar Postman desde el AUR, aunque me salio un error al iniciar despues de configurar todo, lo configure y 
+al parecer todo esta bien?
+
+Para python simplemente vamos a hacer un clone de un código ya hecho, aunque me gustaría mejorar y hacer otro directamente para 
+el proyecto del curso. Solo es clone, y pip a los requirements. Exportamos las variables de Flask y listo.
+Hice un script para que esto no fuera cada vez que quiera iniciar el server desde 0.
+
+He encontrado varios errores que practicamente son de los 3 años que han acurrido desde el curso. Principalmente cambios a 
+la forma de como se usa pymongo. Creo que lo mejor es hacer yo mismo un API usando Flask para que no sea tan dificil volver a 
+hacer todo el proyecto. Aunque podría rehacerlo, y ponerlo cómo aporte de Platzi, para que no se confundan tanto las personas.
