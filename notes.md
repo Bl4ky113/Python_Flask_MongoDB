@@ -314,3 +314,6 @@ Hice un script para que esto no fuera cada vez que quiera iniciar el server desd
 He encontrado varios errores que practicamente son de los 3 años que han acurrido desde el curso. Principalmente cambios a 
 la forma de como se usa pymongo. Creo que lo mejor es hacer yo mismo un API usando Flask para que no sea tan dificil volver a 
 hacer todo el proyecto. Aunque podría rehacerlo, y ponerlo cómo aporte de Platzi, para que no se confundan tanto las personas.
+
+He vuelto, despues de un hiatus extremo por examenes. He logrado probar y usar la DB desde la app de Flask, estoy mirando las posibles
+opciones y methods de Pymongo y estruturado la forma que va a tener la API.

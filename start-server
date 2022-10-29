@@ -1,0 +1,17 @@
+#!/bin/bash
+
+echo -e "Starting Python VENV\n"
+
+source ./venv/bin/activate
+
+echo -e "Exporting Flask Variables\n"
+export FLASK_APP=platzi-api
+echo $FLASK_APP
+export FLASK_DEBUG=1
+echo $FLASK_DEBUG
+export MONGO_DB_URI=`./.get-db-uri $1`
+echo $MONGO_DB_URI
+
+echo -e "Running Flask\n"
+
+flask run
