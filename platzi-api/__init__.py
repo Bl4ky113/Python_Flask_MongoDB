@@ -1,8 +1,8 @@
 
 import os
-from flask import Flask
+from flask import Flask, request
 
-from .db import test_db_conection
+from .db import test_db_connection
 from . import config
 from . import courses, careers
 
@@ -24,4 +24,5 @@ app = create_app()
 
 @app.route('/test_db', methods=['GET'])
 def test_db ():
-    return f"{test_db_conection}"
+    print(request.get_json())
+    return ""

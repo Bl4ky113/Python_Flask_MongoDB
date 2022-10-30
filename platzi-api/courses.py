@@ -1,13 +1,17 @@
+""" Courses Blueprint for the API Endpoint """
 
 import json
 from flask import Blueprint, request
 from flask.json import jsonify
-from . import db
+from .db import \
+        add_course, update_course, delete_course, \
+        get_courses, get_course_by_uid
 
 courses = Blueprint('courses', __name__, url_prefix='/courses')
 
 @courses.route('/', methods=['GET', 'POST', 'PUT', 'DELETE'])
 def index ():
+    """ Index Route for the Courses Endpoint """
     request_body = request.get_json()
 
     course_uid = request.args.get('uid')
@@ -15,28 +19,21 @@ def index ():
     query_course_limit = request.args.get('limit')
 
     if request.method == 'POST': # Create Course
-        pass
+        return jsonify({'_uid': add_course(request_body)})
+
     elif request.method == 'PUT': # Update Course Info
-        pass
+        return jsonify({'modified': update_course(request_body)})
+
     elif request.method == 'DELETE': # Delete Course
-        pass
+        return jsonify({'deleted': delete_course(request_body)})
+
     elif request.method == 'GET' and course_uid: # Get Course by Id
-        pass
+        return jsonify({get_course_by_uid(request_body)})
+
     elif request.method == 'GET': # Get list of the Courses
-        skip = query_course_skip if query_course_skip else 0
-        limit = query_course_limit if query_course_limit else 10
-
-        # result = db.get_courses(skip, limit)
-        # return jsonfy({'courses': json.loads(result)})
-
-# @courses.route('/<career_uid>/add_course', methods=['PUT'])
-# def add_course_to_career (career_uid):
-    # request_body = request.get_json()
-
-    # return jsonfy({'added': })
-
-# @courses.route('/<career_uid>/delete_course', methods=['DELETE'])
-# def delete_course_to_career (career_uid):
-    # request_body = request.get_json()
-
-    # return jsonfy({'deleted': })
+        return jsonify({'courses': json.loads(
+            get_courses(
+                query_course_skip if query_course_skip else 0,
+                query_course_limit if query_course_limit else 10
+                )
+            )})
