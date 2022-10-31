@@ -1,0 +1,14 @@
+# Careers
+{
+    "_id": id,
+    "name": str,
+    "courses": list(courses_id)
+}
+
+# Courses
+{
+    "_id": id,
+    "name": str
+}
+
+# Nothing too serious.

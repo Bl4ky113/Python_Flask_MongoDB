@@ -1,3 +1,4 @@
+""" Main and Init Module of the API """
 
 import os
 from flask import Flask, request
@@ -7,10 +8,14 @@ from . import config
 from . import courses, careers
 
 def create_app (test_config=False):
+    """ Create the Flask App """
     app = Flask(__name__, instance_relative_config=True)
 
     # Config And Instance Files
-    app.config.from_object(config.Config)
+    if not test_config:
+        app.config.from_object(config.Config)
+    else:
+        app.config.from_object(config.Development)
 
     if not os.path.exists("./instance"):
         os.makedirs("./instance")
@@ -22,7 +27,6 @@ def create_app (test_config=False):
 
 app = create_app()
 
-@app.route('/test_db', methods=['GET'])
+@app.route('/test_db', methods=['GET', 'POST'])
 def test_db ():
-    print(request.get_json())
-    return ""
+    return request.get_json()

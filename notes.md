@@ -18,7 +18,8 @@ sessions:
 3. 09/08/2022: 10:15 - ...
 4. 09/27/2022: 13:50 - ...
 5. 10/06/2022: 15:40 - 19:..
-6. 28/10/2022: 13:47 - 
+6. 28/10/2022: 13:47 - ...
+7. 30/10/2022: ... - 
 
 ## Que vamos a ver?
 
@@ -317,3 +318,10 @@ hacer todo el proyecto. Aunque podría rehacerlo, y ponerlo cómo aporte de Plat
 
 He vuelto, despues de un hiatus extremo por examenes. He logrado probar y usar la DB desde la app de Flask, estoy mirando las posibles
 opciones y methods de Pymongo y estruturado la forma que va a tener la API.
+
+He avanzado a pasos gigantes, mi estima, interes y amor por la programación se esta recuperando.
+
+He aprendido a usar POSTman para usar mi API con JSON. Principalmente solo es crear una nueva API, con method de HTTP. Ponerlo en 
+POST, y que nuestro mensaje en body sea JSON. Desde ahí podemos escribir nuestros JSONs para la API para enviar y recibir datos.
+
+Aunque casí no pude buscar, hasta que lo mostrarón en el curso. Pude ver que simplemente es pasandolos en la seccion de params.
