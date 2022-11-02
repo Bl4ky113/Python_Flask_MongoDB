@@ -19,7 +19,8 @@ sessions:
 4. 09/27/2022: 13:50 - ...
 5. 10/06/2022: 15:40 - 19:..
 6. 28/10/2022: 13:47 - ...
-7. 30/10/2022: ... - 
+7. 30/10/2022: ... - ... 
+8. 02/10/2022: 14:24 - 
 
 ## Que vamos a ver?
 
@@ -325,3 +326,33 @@ He aprendido a usar POSTman para usar mi API con JSON. Principalmente solo es cr
 POST, y que nuestro mensaje en body sea JSON. Desde ahí podemos escribir nuestros JSONs para la API para enviar y recibir datos.
 
 Aunque casí no pude buscar, hasta que lo mostrarón en el curso. Pude ver que simplemente es pasandolos en la seccion de params.
+
+Voy a ir viendo el curso a la par que avanzo en el project ya que me esta faltando algunas cosas que enseñan en el curso.
+Por ejemplo, tengo inecesariamente simple los schemas de los objs de mi DB.
+
+## Al momento de Crear Schemes de datos
+Vamos a tener en cuenta más que todo el uso de nuestro datos frente a la velocidad. Lo principal de las No-SQL y Docs Based.
+Frente a lo general que es poder almacenar más datos y poder usarlos, obtenerlos, y modificarlos estos de la mejor forma.
+Puede ser un sacrificio dependiendo de lo que estemos haciendo, por ejemplo. En una lista de videos, que se puedan repetir.
+Podemos guardalos en una lista sus Ids junto a su nombre, para no tener que buscar siempre su doc para obtenerlo. Podriamos 
+tener también otros datos cómo cuanto dura, descripción, u otros.
+Pero hacer esto hace que el tamaño de nuestros docs sea mayor. Y si llega a cambiar alguno de esos datos en 
+nuestros videos, tendriamos que cambiarlos en cada lista.
+
+En general lo mejor es ver lo que se necesita solo para velocidad y no solo para almacenar los datos de los objects.
+Y hacer algún que otro sacrificio sin dañar todo.
+
+Una forma de ver si lo podemos hacer, este sacrificio, es ver si esa información se va a ir acumulando. Ejemplo comentarios 
+en un video. Si sí, lo mejor sería dejarles su propio doc, o inclusive collection.
+
+## POSTMAN, Que?
+
+En general POSTman es solo una GUI para poder interactuar con APIs enviandoles datos, jsons, xmls, entre otros.
+Los principal para lo que lo vamos a usar es Jsons, base de las APIs REST.
+Para eso vamos a usar y crear requests HTTP, y vamos a usar los Methods de este, enviados a una URL, generalmente local.
+Este request puede ser modificado con raw json data, headers custom de HTTP, o parametros para hacer requests. Hay otras ventanas
+pero no creo que las vaya a usar aún.
+Podemos crear una collection de jsons, o requests para no tener que crear uno cada vez que queramos enviar algo. Bueno para el 
+testing.
+
+

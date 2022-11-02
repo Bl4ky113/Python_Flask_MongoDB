@@ -29,4 +29,4 @@ app = create_app()
 
 @app.route('/test_db', methods=['GET', 'POST'])
 def test_db ():
-    return request.get_json()
+    return test_db_connection()
