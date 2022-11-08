@@ -10,7 +10,7 @@ a retomar mi ruta de aprendizaje.
 Bueno, depues de examenes y demás cosas. Puedo volver. Ya voy para cuatro meses.
 
 start: 09/06/2022
-end: 
+end: 08/11/2022
 
 sessions:
 1. 09/06/2022: ... - 20:18
@@ -20,7 +20,8 @@ sessions:
 5. 10/06/2022: 15:40 - 19:..
 6. 28/10/2022: 13:47 - ...
 7. 30/10/2022: ... - ... 
-8. 02/10/2022: 14:24 - 
+8. 02/11/2022: 14:24 - ...
+9. 08/11/2022: 17:05 - 17:53
 
 ## Que vamos a ver?
 
@@ -355,4 +356,31 @@ pero no creo que las vaya a usar aún.
 Podemos crear una collection de jsons, o requests para no tener que crear uno cada vez que queramos enviar algo. Bueno para el 
 testing.
 
+## Indices en MongoDB
 
+Los Indices en MongoDB nos permite hacer queries de una forma más eficiente. Si no hacemos estos 
+indices, los queries seran más lentos ya que se tiene que verificar cada doc para hacer el query.
+Se pueden hacer:
+- De un solo campo: Para solo un valor de los Docs
+- Compuestos
+- Multi llave
+- GeoEspaciales
+- De Texto
+- Hashed
+
+Se pueden agregar con addIndex('tipo de index'). No sé explica más.
+
+## Recomendaciones en Prod
+
+- Separar Dev / Testing / Production
+- Mantener limpia nuestra auths y white lists
+- 2 step auth
+- No dejar las credenciales a lo loco
+- Usar encriptación de nuestros datos
+
+## Push para Prod
+
+Podemos pagar un Cluster mayor a M30, lo mejor, en Mongo Atlas. Configurar todo lo anterior dicho, y Ya.
+
+Fin del curso. Falle el examen, voy a volver a hacerlo mañana despues de revisar en lo que falle. 
+Curso muy malo, nada más.
